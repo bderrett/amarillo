@@ -1,0 +1,23 @@
+[package]
+name = "amarillo"
+version = "0.1.0"
+authors = ["Ben"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = { version = "0.7.3", features = ["small_rng"] }
+strip-ansi-escapes = "0.*"
+structopt = "*"
+serde={ version = "1.*", features = ["derive"] }
+serde_json = "*"
+chrono = "*"
+tensorflow = "0.14.0"
+
+[target.'cfg(unix)'.dependencies]
+termion = "1.5.*"
+
+# Include debugging symbols in release so that perf output is useful
+[profile.release]
+debug = true
